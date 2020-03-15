@@ -12,7 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
+import android.net.Uri;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,9 +41,14 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private void parseJSON() {
-        String url = "https://pixabay.com/api/?key=15612322-16021d429994f46b808f3487b&q=yellow+flowers&image_type=photo&pretty=true";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+        String sessionId = getIntent().getStringExtra("EXTRA_SESSION_ID");
+        String url = "https://pixabay.com/api/?key=15612322-16021d429994f46b808f3487b";
+        Uri baseuri = Uri.parse(url);
+        Uri.Builder uriBuilder = baseuri.buildUpon();
+        uriBuilder.appendQueryParameter("q", sessionId);
+        uriBuilder.appendQueryParameter("image_type", "photo");
+        uriBuilder.appendQueryParameter("pretty", "true");
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, uriBuilder.toString(), null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {

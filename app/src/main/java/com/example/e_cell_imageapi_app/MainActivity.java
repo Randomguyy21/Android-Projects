@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword){
-        if((userName.equals("Admin")) && (userPassword.equals("1234"))){
-            Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+        if((userName.equals("admin")) && (userPassword.equals("1234"))){
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             startActivity(intent);
         }else{
             counter--;
