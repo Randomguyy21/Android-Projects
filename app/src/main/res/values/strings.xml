@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">E_Cell_ImageAPI_App</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="no_of_attempts_remaining">No of attempts remaining:</string>
 </resources>

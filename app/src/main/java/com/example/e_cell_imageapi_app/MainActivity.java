@@ -1,80 +1,54 @@
 package com.example.e_cell_imageapi_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private Adapter mExampleAdapter;
-    private ArrayList<card_item> mExampleList;
-    private RequestQueue mRequestQueue;
+
+    private EditText Name;
+    private EditText Password;
+    private TextView Info;
+    private Button Login;
+    private int counter = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Name = (EditText)findViewById(R.id.etName);
+        Password = (EditText)findViewById(R.id.etPassword);
+        Info = (TextView)findViewById(R.id.tvInfo);
+        Login = (Button)findViewById(R.id.btnLogin);
 
-        mExampleList = new ArrayList<>();
+        Info.setText("No of attempts remaining: 5");
 
-        mRequestQueue = Volley.newRequestQueue(this);
-        parseJSON();
-    }
-
-    private void parseJSON() {
-        String url = "https://pixabay.com/api/?key=15612322-16021d429994f46b808f3487b&q=yellow+flowers&image_type=photo&pretty=true";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("hits");
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject hit = jsonArray.getJSONObject(i);
-
-                                String creatorName = hit.getString("user");
-                                String imageUrl = hit.getString("webformatURL");
-                                int likeCount = hit.getInt("likes");
-
-                                mExampleList.add(new card_item(imageUrl));
-                            }
-
-                            mExampleAdapter = new Adapter(MainActivity.this, mExampleList);
-                            mRecyclerView.setAdapter(mExampleAdapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+            public void onClick(View view) {
+                validate(Name.getText().toString(), Password.getText().toString());
             }
         });
-
-        mRequestQueue.add(request);
     }
+
+    private void validate(String userName, String userPassword){
+        if((userName.equals("Admin")) && (userPassword.equals("1234"))){
+            Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+            startActivity(intent);
+        }else{
+            counter--;
+
+            Info.setText("No of attempts remaining: " + String.valueOf(counter));
+
+            if(counter == 0){
+                Login.setEnabled(false);
+            }
+        }
+    }
+
 }
