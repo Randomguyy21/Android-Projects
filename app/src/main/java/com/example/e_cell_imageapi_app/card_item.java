@@ -10,5 +10,5 @@ public class card_item {
     public String getmImageUrl(){
         return mImageUrl;
     }
-    
+
 }
