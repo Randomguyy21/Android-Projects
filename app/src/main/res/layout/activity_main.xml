@@ -64,6 +64,7 @@
         android:ems="10"
         android:hint="admin"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         android:textColorHint="#6070C5" />
 
 
@@ -106,6 +107,7 @@
         android:ems="10"
         android:hint="1234"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         android:textColorHint="#94A2EC" />
 
     <ImageView
