@@ -4,85 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.e_cell_imageapi_app.MainActivity">
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="144dp"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="134dp"
+        app:srcCompat="@drawable/loginbackground" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="298dp"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#1732CD"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-35dp"
+        android:layout_marginTop="335dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user" />
 
     <EditText
         android:id="@+id/etName"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="86dp"
+        android:ems="10"
+        android:hint="admin"
+        android:inputType="textPersonName"
+        android:textColorHint="#6070C5" />
+
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etPassword"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="43dp"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="395dp"
+        android:text="Password"
+        android:textAlignment="center"
+        android:textColor="#7532EC"
+        android:textColorHint="#3754F4"
+        android:textColorLink="#4259D8"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-34dp"
+        android:layout_marginTop="439dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/locked" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnLogin"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/etName"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="60dp"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.093" />
+        android:hint="1234"
+        android:inputType="textPersonName"
+        android:textColorHint="#94A2EC" />
 
-    <Button
+    <ImageView
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="268dp"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.154" />
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="155dp"
+        app:srcCompat="@drawable/gobtn" />
 
     <TextView
         android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnLogin"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="-101dp"
-        android:text="@string/no_of_attempts_remaining"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.198" />
+        android:layout_marginBottom="37dp"
+        android:text="No of attempts remaining: 5" />
+
 
 </RelativeLayout>

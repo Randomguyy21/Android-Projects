@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Name;
     private EditText Password;
     private TextView Info;
-    private Button Login;
+    private ImageView Login;
     private int counter = 5;
 
     @Override
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Name = (EditText)findViewById(R.id.etName);
         Password = (EditText)findViewById(R.id.etPassword);
         Info = (TextView)findViewById(R.id.tvInfo);
-        Login = (Button)findViewById(R.id.btnLogin);
+        Login = (ImageView) findViewById(R.id.btnLogin);
 
         Info.setText("No of attempts remaining: 5");
 
